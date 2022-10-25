@@ -35,8 +35,14 @@ public class Sample3AuthConfiguration {
         .password("$2y$10$tyC6ufPz1mmefhftFyyrHesfsjO2x5l.9PaqAqoNeuZb624pd9HaC")
         .roles("SELLER")
         .build();
+    UserDetails a = users
+        .username("a")
+        .password("$2y$10$P6sqf73AXht8cK9ZH7Jko.KPzdrIQfR9KdQ9/ROkIcLW.lhtb8ZKW")
+        .roles("CUSTOMER")
+        .build();
+
     // 生成したユーザをImMemoryUserDetailsManagerに渡す（いくつでも良い）
-    return new InMemoryUserDetailsManager(customer1, customer2, seller1);
+    return new InMemoryUserDetailsManager(customer1, customer2, seller1, a);
   }
 
   /**
