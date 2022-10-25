@@ -3,21 +3,25 @@
 
 <head>
   <meta charset="utf-8">
-  <title>5-6-1</title>
+  <title>5-6-2</title>
   <script>
     window.onload = function () {
-
-      var sse = new EventSource('/sample56/step1');
+      var sse = new EventSource('/sample56/step2');
       sse.onmessage = function (event) {
         console.log(event.data);
-        document.getElementById("p1").textContent = event.data;
+        var p1 = document.getElementById("p1");//操作対象のDOMを取得
+        p1.appendChild(document.createTextNode(event.data));//ノードの追加
+        p1.appendChild(document.createElement('br'));//brタグの追加
       }
+
     }
+
   </script>
 </head>
 
 <body>
   <p id="p1"></p>
+
 </body>
 
 </html>
